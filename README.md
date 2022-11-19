@@ -11,3 +11,5 @@ Nasza gra będzie polegać na tym, na czym polega klasyczny PacMan.
     1. Robimy to w dobrym momencie
     2. Uważamy, żeby nie zginąć ani nie dać się zablokować.
 3. Nie dajemy się złapać.
+
+![Logo kultowego PacMana](/assets/images/pacman.png)

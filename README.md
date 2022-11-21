@@ -6,6 +6,7 @@ Nasza gra będzie polegać na tym, na czym polega klasyczny PacMan.
 
 #### **Główne** cele gry:
 
+
 1. Zbieramy punkty.
 2. Walczymy z przeciwnikami
     1. Robimy to w dobrym momencie
@@ -13,3 +14,9 @@ Nasza gra będzie polegać na tym, na czym polega klasyczny PacMan.
 3. Nie dajemy się złapać.
 
 ![Logo kultowego PacMana](/assets/images/pacman.png)
+
+### Podzial pracy:
+Lorem ipsum, kiedys tu bedzie duzo teksty :)
+
+Korzystamy z biblioteki:
+https://www.pygame.org/docs/

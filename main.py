@@ -1,9 +1,10 @@
 #https://github.com/AGH-Wstep-do-Informatyki-2022-2023/klad-Alethinophidia-tow.git
 #PACMAN klad-Alethinophidia-tow
 import sys, pygame
+import constants
 pygame.init()
 
-size = width, height = 320, 240
+size = width, height = 960, 1020
 speed = [2, 2]
 black = 0, 0, 0
 
@@ -22,6 +23,6 @@ while True:
     if ballrect.top < 0 or ballrect.bottom > height:
         speed[1] = -speed[1]
 
-    screen.fill(black)
+    screen.fill(constants.RED)
     screen.blit(ball, ballrect)
     pygame.display.flip()

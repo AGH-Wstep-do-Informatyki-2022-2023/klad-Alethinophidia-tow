@@ -7,7 +7,7 @@ class Pacman:
     def __init__(self, degree):
         self.x_cord = 0
         self.y_cord = 0
-        self.image = pygame.image.load("Pacman.png")
+        self.image = pygame.image.load("assets/images/Pacman.png")
         self.width = self.image.get_width()
         self.height = self.image.get_height()
         self.speed = 4

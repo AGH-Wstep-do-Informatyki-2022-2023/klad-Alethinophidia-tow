@@ -37,7 +37,7 @@ def main():
     alive = True
     pacman = Pacman(0)
     while alive:
-        pygame.time.Clock().tick(100)
+        pygame.time.Clock().tick(30)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 alive = False

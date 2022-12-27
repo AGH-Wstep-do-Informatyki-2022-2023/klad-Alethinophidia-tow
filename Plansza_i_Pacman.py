@@ -1,7 +1,7 @@
 import pygame
 
 pygame.init()
-window = pygame.display.set_mode((800, 500))
+window = pygame.display.set_mode((1400, 700))
 
 class Pacman:
     def __init__(self, degree):

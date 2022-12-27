@@ -2,7 +2,6 @@ import pygame
 
 pygame.init()
 window = pygame.display.set_mode((1400, 700))
-
 class Pacman:
     def __init__(self, degree):
         self.x_cord = 0

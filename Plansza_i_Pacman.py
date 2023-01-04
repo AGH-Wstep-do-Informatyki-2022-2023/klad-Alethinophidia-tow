@@ -12,7 +12,7 @@ class Pacman:
         self.speed = 4
     
     def rotation(self, degree):
-        self.image = pygame.transform.rotate(pygame.image.load("Pacman.png"), degree)
+        self.image = pygame.transform.rotate(pygame.image.load("assets/images/Pacman.png"), degree)
         return self.image
 
     def move(self, wasd):

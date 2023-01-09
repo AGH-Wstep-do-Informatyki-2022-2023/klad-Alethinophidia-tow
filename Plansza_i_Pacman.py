@@ -1,7 +1,7 @@
 import pygame
 
 pygame.init()
-window = pygame.display.set_mode((1400, 700))
+window = pygame.display.set_mode((800, 500))
 class Pacman:
     def __init__(self, degree):
         self.x_cord = 0
@@ -36,7 +36,7 @@ def main():
     alive = True
     pacman = Pacman(0)
     while alive:
-        pygame.time.Clock().tick(30)
+        pygame.time.Clock().tick(60)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 alive = False

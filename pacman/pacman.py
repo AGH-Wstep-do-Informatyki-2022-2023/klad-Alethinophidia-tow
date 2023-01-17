@@ -13,6 +13,8 @@ font = pygame.font.Font('freesansbold.ttf',20)
 lvl = boards
 player_x = 450
 player_y = 663
+center_x = player_x
+center_y = player_y
 player_images = []
 for i in range(1, 5):
     player_images.append(pygame.transform.scale(pygame.image.load(f'assets/player_images/{i}.png'), (45, 45)))
@@ -23,12 +25,16 @@ flicker = 0
 turns_allowed = (False,False,False,False)
 direction_command = 0
 player_speed = 2
+main_score = 0
+Y = (HEIGHT - 50) // 32 
+X = (WIDTH // 30)
 
+def draw_score():
+    score_text = font.render(f'Score: {main_score}', True, 'white')
+    screen.blit(score_text, (10, 920))
 
 def check_position(centerx, centery):
     turns = [False, False, False, False]
-    Y = (HEIGHT - 50) // 32
-    X = (WIDTH // 30)
     R = 14
     if centerx // 30 < 29:
         if direction == 0:
@@ -74,8 +80,6 @@ def check_position(centerx, centery):
 
 
 def draw_board(lvl):
-    Y = ((HEIGHT - 50) // 32)
-    X = (WIDTH // 30)
     for i in range(len(lvl)):
         for j in range(len(lvl[i])):
             if lvl[i][j] == 1:
@@ -128,7 +132,7 @@ def draw_player():
 
 
 def move_player(player_x, player_y):
-    # r, l, d, u
+    #DASW
     if direction == 0 and turns_allowed[0]:
         player_x += player_speed
     elif direction == 1 and turns_allowed[1]:
@@ -138,6 +142,24 @@ def move_player(player_x, player_y):
     elif direction == 3 and turns_allowed[3]:
         player_y += player_speed
     return player_x, player_y
+
+
+def check_dots(score):
+    
+    if player_x < 870 and player_x > 0:
+        if lvl[center_y // Y][center_x // X] == 1:
+            lvl[center_y // Y][center_x // X] = 0
+            score += 10
+
+    if player_x < 870 and player_x > 0:
+        if lvl[center_y // Y][center_x // X] == 2:
+            lvl[center_y // Y][center_x // X] = 0
+            score += 20
+
+    print ('i here')
+    return score
+
+
 
 run = True
 while run:
@@ -151,7 +173,8 @@ while run:
     screen.fill('black')
     draw_board(lvl)
     draw_player()
-
+    draw_score()
+    main_score = check_dots(main_score)
     center_x = player_x + 23
     center_y = player_y + 24
     turns_allowed = check_position(center_x,center_y) 
@@ -161,7 +184,14 @@ while run:
             player_x = -47
     elif player_x < -50:
             player_x = 897
-
+    if direction_command == 0 and turns_allowed[0]:
+        direction = 0
+    if direction_command == 1 and turns_allowed[1]:
+        direction = 1
+    if direction_command == 2 and turns_allowed[2]:
+        direction = 2
+    if direction_command == 3 and turns_allowed[3]:
+        direction = 3
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -185,9 +215,7 @@ while run:
             if event.key == pygame.K_s and direction_command == 3:
                 direction_command = direction
 
-        for i in range(4):
-            if direction_command == i and turns_allowed[i]:
-                direction = i
+    
 
     pygame.display.flip()
 pygame.quit()
